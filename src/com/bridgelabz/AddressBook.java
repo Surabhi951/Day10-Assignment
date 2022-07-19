@@ -70,6 +70,10 @@ public class AddressBook {
                     break;
 
                 case 3:
+                    book.updateContact();
+                    break;
+
+                case 4:
                     isTerminate = true;
                     break;
 
@@ -77,6 +81,62 @@ public class AddressBook {
                     System.out.println("please select valid option");
                     break;
             }
+        }
+    }
+
+    private void updateContact() {
+        System.out.println("Enter EmailId to update");
+        String EmailId = scanner.next();
+
+        if (map.containsKey(EmailId) == false) {
+            System.out.println("provided email Id is wrong !");
+            updateContact();
+        }
+
+        ContactPerson person = map.get(EmailId);
+        System.out.println("1: First name \n" + "2: Last Name \n" + "3: Address \n" + "4: City \n" + "5: State \n"
+                + "6: ZipCode \n " + "7: MobileNumber");
+
+        int selectedOption = scanner.nextInt();
+        switch (selectedOption) {
+            case 1:
+                System.out.println("Enter First Name ");
+                String FirstName = scanner.next();
+                person.setFirstName(FirstName);
+                break;
+            case 2:
+                System.out.println("Enter Last Name");
+                String LastName = scanner.next();
+                person.setLastName(LastName);
+                break;
+            case 3:
+                System.out.println("Enter Address");
+                String Address = scanner.next();
+                person.setAddress(Address);
+                break;
+            case 4:
+                System.out.println("Enter City");
+                String City = scanner.next();
+                person.setCity(City);
+                break;
+            case 5:
+                System.out.println("Enter State");
+                String State = scanner.next();
+                person.setState(State);
+                break;
+            case 6:
+                System.out.println("Enter Zip Code");
+                String ZIPCode = scanner.next();
+                person.setZIPCode(ZIPCode);
+                break;
+            case 7:
+                System.out.println("Enter Phone Number");
+                String MobileNo = scanner.next();
+                person.setMobileNo(MobileNo);
+                break;
+            default:
+                System.out.println("please select valid option");
+                break;
         }
     }
 }
