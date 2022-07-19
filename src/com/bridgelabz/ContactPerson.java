@@ -40,10 +40,6 @@ public class ContactPerson {
         this.ZIPCode = zIPCode;
     }
 
-    public String setMobileNo() {
-        return emailId;
-    }
-
 
     public void setMobileNo(String mobileNo) {
         this.MobileNo = mobileNo;
