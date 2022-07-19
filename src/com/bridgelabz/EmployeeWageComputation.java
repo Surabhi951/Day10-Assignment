@@ -10,11 +10,11 @@ public class EmployeeWageComputation {
     static final int MAX_Days = 20;
 
     static int checkAttendance() {
+
         return (int) (Math.random() * 10) % 3;
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Program");
+    public static int computeEmpWage() {
         int attendance;
         int dailyWage = 0;
         int totalWage = 0;
@@ -23,7 +23,7 @@ public class EmployeeWageComputation {
 
         while (day <= MAX_Days && totalWorkingHour < MAX_HOURS) {
             attendance = checkAttendance();
-            switch ( attendance) {
+            switch (attendance) {
                 case IS_FULL_TIME:
                     dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
                     totalWorkingHour += FULL_DAY_HOUR;
@@ -45,6 +45,11 @@ public class EmployeeWageComputation {
         System.out.println("Total Days:" + (day-1));
         System.out.println("Total Working Hour:" + totalWorkingHour);
         System.out.println("Total Wage of month:" + totalWage);
+        return totalWage;
+    }
 
+    public static void main(String[] args) {
+        System.out.println("Welcome to Employee Wage Computation Program");
+        computeEmpWage();
     }
 }
