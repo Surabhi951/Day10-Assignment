@@ -74,6 +74,10 @@ public class AddressBook {
                     break;
 
                 case 4:
+                    book.deletePerson();
+                    break;
+
+                case 5:
                     isTerminate = true;
                     break;
 
@@ -139,4 +143,17 @@ public class AddressBook {
                 break;
         }
     }
+
+    private void deletePerson() {
+        System.out.println("Enter EmailId to delete");
+        String EmailId = scanner.next();
+        if (!map.containsKey(EmailId)) {
+            System.out.println("Provided email Id is not found");
+            deletePerson();
+        }
+        map.remove(EmailId);
+        System.out.println("Deleted Successfully.");
+    }
 }
+
+
