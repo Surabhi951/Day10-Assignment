@@ -17,19 +17,16 @@ public class EmployeeWageComputation {
         int dailyWage = 0;
 
         attendance = checkAttendance();
-        switch (attendance){
-            case IS_FULL_TIME:
-                dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-                break;
-
-            case IS_PART_TIME:
-                dailyWage = WAGE_PER_HOUR * PART_TIME_HOUR;
-                break;
-            default:
-                break;
+        if (attendance == IS_FULL_TIME) {
+            dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+        }
+        else if(attendance == IS_PART_TIME){
+            dailyWage = WAGE_PER_HOUR * PART_TIME_HOUR;
+        }
+        else{
+            System.out.println("Employee is Absent");
         }
 
         System.out.println("Daily Wage:" + dailyWage);
-
     }
 }
